@@ -1,0 +1,86 @@
+\documentclass{beamer}  
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}  
+\usepackage{mathdots}  
+\usepackage{graphicx}  
+\usepackage{float}  
+\usepackage{multirow}  
+\usetheme{Berkeley}  
+%可选主题 除 Warsaw 外有：
+% Antibes Bergen Berkeley Berlin
+% Boadilla Copenhagen Darmstadt Dresden
+% Frankfurt Goettingen Hannover Ilmenau
+% Juanlespins Madrid Malmoe Marburg
+% Montpellier Paloalto Pittsburgh Rochester
+% Singapore
+    \begin{document}   
+    %%%%%%%%%%%%%%%%%   开始页   %%%%%%%%%%%%%%%%%%%%%%%
+        \title{beamer 实例}  
+        \subtitle{这有一个小标题}
+        \date{\today} 
+        \author{苏佳骥}
+        \institute{浙江大学数学科学学院}
+        \frame{\titlepage}
+
+    %%%%%%%%%%%%%%%%%  目录页    %%%%%%%%%%%%%%%%%%%%%%%%%%
+        \frame{\frametitle{目录}\tableofcontents} 
+        % 下面为定义章节的代码，在需要使用的地方添加即可改变目录
+        %\section{1}  
+        %\subsection{subsection name}
+        %\subsubsection{sub-subsection name}
+        %\section{2}  
+        %\section{3}   
+        
+
+    %%%%%%%%%%%%%%%%%  正文页实例   %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %有标题
+        \begin{frame}
+            \frametitle{帧标题}
+        内容
+        \end{frame}
+    %无标题的无序列表
+    \begin{frame}[plain]
+        空白帧没有标题
+        \begin{itemize}
+            \item The first item
+            \item The second item
+            \item The third item
+            \item The fourth item
+            \end{itemize}
+    \end{frame}
+    %有序列表
+    \begin{frame}[plain]
+        \begin{enumerate}
+            \item The first item
+            \item The second item
+            \item The third item
+            \item The fourth item
+            \end{enumerate}
+    \end{frame}
+    %描述列表
+    \begin{frame}[plain]
+        \begin{description}
+            \item[First Item] Description of first item
+            \item[Second Item] Description of second item
+            \item[Third Item] Description of third item
+            \item[描述] Description of forth item
+            \end{description}
+    \end{frame}
+    %区块
+     \begin{frame}[plain]
+        \begin{block}{勾股定理}  
+        直角三角形的斜边的平方等于两直角边的平方和。  
+        可以用符号语言表述为：设直角三角形ABC，其中$\angle C=90^\circ$则有  
+        \begin{equation}  
+            AB^2=BC^2+AC^2  
+        \end{equation}  
+        \end{block}  
+    \end{frame}
+    
+    \section{第一章}
+    \begin{frame}
+        \frametitle{第一章}
+        \subsection {第一节}
+        第一节
+    \end{frame}
+    \end{document}

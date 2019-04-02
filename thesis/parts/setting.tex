@@ -1,0 +1,99 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cite}
+\usepackage{extarrows}
+\usepackage{indentfirst}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{fancyhdr} 
+\usepackage{fontspec}
+\usepackage{titlesec} 
+\usepackage{titletoc}
+\usepackage{pdfpages}
+\usepackage{bm}
+\usepackage{listings} 
+\renewcommand{\thepart}{第\chinese{part}部分}
+\renewcommand{\contentsname}{\centerline{ \hwfs \zihao{3} 目\quad 录}}
+\pagestyle{fancy}
+%%%%%%% 字体相关 %%%%%
+\newcommand{\tnewroman}{\fontspec{Times New Roman}} %Times New Roman  tnewroman
+\setCJKfamilyfont{hwxk}{STXingkai}   %华文行楷  hwxk  
+\newcommand{\hwxk}{\CJKfamily{hwxk}} 
+\setCJKfamilyfont{hwfs}{STFangsong}   %华文仿宋 hwfs 
+\newcommand{\hwfs}{\CJKfamily{hwfs}} 
+\newfontfamily\fangsong{FangSong}       %仿宋
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}
+
+%%%% 页边距  %%%%%%%%%
+
+\geometry{top=72pt,right=90pt,bottom=72pt,left=90pt} 
+
+%%%%%%% 标题格式 %%%%%%%
+    %%%%%   目录部分   %%%%%%
+        % \part 部分相关
+\titlecontents{part}[0pt]
+    {\addvspace{1pt}\filright \bf \hwfs \zihao{4}}
+    {\contentspush{\thecontentslabel  }}{}{}
+        % \section 相关
+\titlecontents{section}[0pt]{\zihao{-4} \hwfs }
+    {\contentspush{\thecontentslabel ~}}{}
+    {\titlerule*[6pt]{.}\contentspage}
+        %\subsection 相关
+\titlecontents{subsection}[0pt]{\zihao{-4} \hwfs }
+    {\contentspush{\thecontentslabel ~}}{}
+    {\titlerule*[6pt]{.}\contentspage}
+        %\subsubsection 相关
+\titlecontents{subsubsection}[0pt]{\zihao{-4} \hwfs }
+    {\contentspush{\thecontentslabel ~}}{}
+    {\titlerule*[6pt]{.}\contentspage}
+
+    %%%%  文章内部  %%%%%
+\titleformat{\part}%设置part的样式
+    {\vspace{9cm}\centering \fontsize{48}{2} \heiti} %标签 48 磅 居中
+    {\thepart }
+    {0pt}%sep label和title之间的水平距离
+    { \\ \centering \zihao{-0} \bf  \hwfs } % 标题仿宋GB, 加粗，小初居中
+
+\titleformat{\section}%设置section的样式
+    {\raggedright \zihao{3} \bfseries \hwfs}%右对齐，3号字，加粗
+    {\thesection~}%标号后面有空格
+    {0pt}%sep label和title之间的水平距离
+    {}%标题前没有内容
+
+\titleformat{\subsection}%设置subsection的样式
+    {\raggedright \zihao{-3} \bfseries \hwfs }%右对齐，小3号字，加粗
+    {\thesubsection~}%标号后面有个空格
+    {0pt}%sep label和title之间的水平距离
+    {}%标题前没有内容
+
+\titleformat{\subsubsection}%设置subsubsection的样式
+    {\raggedright \zihao{4} \bf \hwfs }%右对齐，4号字，加粗
+    {\thesubsubsection~}%标号后面有个空格
+    {0pt}%sep label和title之间的水平距离
+    {}%标题前没有内容
+
+%%%% 图、表、公式编号
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand\theequation{~ \arabic{section} - \arabic{equation} ~}
+\renewcommand\arraystretch{1.5}
+\renewcommand{\refname}{\vspace{-1cm}}
+
+%%%%% 将当前页页眉重置为右侧页眉
+\newcommand{\resetoddpageheadings}{  
+    \ifodd\value{page}
+        {
+        \fancyhead{}            % 清空fancy设定
+        \fancyhead[RO]{\zihao{-5} \biaoti}     %奇数页 右侧 页眉信息
+        \fancyhead[LE]{\zihao{-5} 浙江大学本科生毕业论文（设计）}    %偶数页 左侧 页眉信息
+        }
+        \else
+        {
+        \fancyhead{}            % 清空fancy设定
+        \fancyhead[RE]{\zihao{-5} \biaoti}     %奇数页 右侧 页眉信息
+        \fancyhead[LO]{\zihao{-5} 浙江大学本科生毕业论文（设计）}    %偶数页 左侧 页眉信息
+        }
+    \fi
+    }

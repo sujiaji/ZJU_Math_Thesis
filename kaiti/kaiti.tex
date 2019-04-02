@@ -1,0 +1,57 @@
+%//                            _ooOoo_
+%//                           o8888888o
+%//                           88" . "88
+%//                           (| -_- |)
+%//                            O\ = /O
+%//                        ____/`---'\____
+%//                      .   ' \\| |// `.
+%//                       / \\||| : |||// \
+%//                     / _||||| -:- |||||- \
+%//                       | | \\\ - /// | |
+%//                     | \_| ''\---/'' | |
+%//                      \ .-\__ `-` ___/-. /
+%//                   ___`. .' /--.--\ `. . __
+%//                ."" '< `.___\_<|>_/___.' >'"".
+%//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+%//                 \ \ `-. \_ __\ /__ _/ .-` / /
+%//         ======`-.____`-.___\_____/___.-`____.-'======
+%//                            `=---='
+
+\documentclass[a4paper, 12pt,twoside]{ctexart}
+    \input{ktparts/ktsetting.tex}
+    %%%%%%%%%%%%  定义论文封面相关信息  %%%%%%%%%%%%%%%%
+    \newcommand\leixing{本~科~生~毕~业~论~文（设~计)}
+    \newcommand\xuehao{314010xxxx ~ 苏佳骥}
+    \newcommand\jiaoshi{x ~ x}  %指导教师
+    \newcommand\biaoti{开题报告模板}
+    \newcommand\banji{2014 ~ 统计学}
+    \newcommand\xueyuan{数学科学学院}
+    \fancyhead{}
+    \fancyhead[RO]{\zihao{-5} \biaoti}      %奇数页 页眉信息
+    \fancyhead[LE]{\zihao{-5} 浙江大学本科生毕业论文（设计）}      %奇数页 页眉信息
+    \begin{document}   
+        %%%%%%%%%%  创建封面   %%%%%%%%%%%%%%%%
+        \input{ktparts/ktcover.tex}
+        \resetoddpageheadings
+        \input{ktparts/ktyaoqiu.tex}
+
+        \pagenumbering{Roman} 
+        \setcounter{page}{1}
+        \resetoddpageheadings      
+        \cfoot{\thepage}
+        \tableofcontents        
+        \newpage
+
+        \pagenumbering{arabic}
+        \setcounter{page}{1}
+        \resetoddpageheadings
+        \input{ktparts/wenxianzongshu.tex}
+        \resetoddpageheadings
+        \input{ktparts/kaitibaogao.tex}
+        \resetoddpageheadings
+        \input{ktparts/waiwenfanyi.tex}
+        \resetoddpageheadings
+        \input{ktparts/waiwenyuanwen.tex}
+        \resetoddpageheadings       
+        \input{ktparts/kaohe.tex}
+    \end{document}

@@ -1,0 +1,79 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{extarrows}
+\usepackage{indentfirst}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{fancyhdr} 
+\usepackage{fontspec}
+\usepackage{titlesec} 
+\usepackage{titletoc}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{natbib}
+\pagestyle{fancy}
+%%%%%%% 字体相关 %%%%%
+\newcommand{\tnewroman}{\fontspec{Times New Roman}} %Times New Roman  tnewroman
+\setCJKfamilyfont{hwfs}{STFangsong}   %华文仿宋 hwfs 
+\newcommand{\hwfs}{\CJKfamily{hwfs}} 
+
+%%%% 页边距  %%%%%%%%%
+\geometry{top=72pt,right=90pt,bottom=72pt,left=90pt} 
+
+%%%%%%% 标题格式 %%%%%%%
+    %%%%%   目录部分   %%%%%%
+    
+\renewcommand{\contentsname}{\centerline{ \hwfs \zihao{3} 目\quad 录}}
+        % \part 部分相关
+\titlecontents{part}[0pt]
+    {\addvspace{4pt}\filright  \hwfs \zihao{-4}}
+    {\contentspush{\thecontentslabel  }}{}{}
+        % \section 相关
+\titlecontents{section}[0pt]{\addvspace{4pt} \zihao{-4}  \bf \hwfs }
+    {}{}
+    {\titlerule*[6pt]{.}\contentspage}
+        %\subsection 相关
+\titlecontents{subsection}[10pt]{\addvspace{4pt} \zihao{-4}  \bf \hwfs }
+    {}{}
+    {\titlerule*[6pt]{.}\contentspage}
+        %\subsubsection 相关
+\titlecontents{subsubsection}[10pt]{\addvspace{4pt} \zihao{-4} \hwfs }
+    {}{}
+    {\titlerule*[6pt]{.}\contentspage}
+
+    %%%%  文章内部  %%%%%
+\titleformat{\section}%设置section的样式
+    {\centering \zihao{3} \bf \hwfs}%居中，3号字，加粗
+    {}%手动标号
+    {0pt}%sep label和title之间的水平距离
+    {}%标题前没有内容
+
+\titleformat{\subsection}%设置subsection的样式
+    {\raggedright \zihao{-3} \bf \hwfs }%右对齐，小3号字，加粗
+    {}%手动标号
+    {0pt}%sep label和title之间的水平距离
+    {}%标题前没有内容
+
+\titleformat{\subsubsection}%设置subsubsection的样式
+    {\raggedright \zihao{4} \bf \hwfs }%右对齐，4号字，加粗
+    {}%手动标号
+    {0pt}%sep label和title之间的水平距离
+    {}%标题前没有内容
+
+%%%%% 将当前页页眉重置为右侧页眉
+\newcommand{\resetoddpageheadings}{  
+    \ifodd\value{page}
+        {
+        \fancyhead{}            % 清空fancy设定
+        \fancyhead[RO]{\zihao{-5} \biaoti}     %奇数页 右侧 页眉信息
+        \fancyhead[LE]{\zihao{-5} 浙江大学本科生毕业论文（设计）}    %偶数页 左侧 页眉信息
+        }
+        \else
+        {
+        \fancyhead{}            % 清空fancy设定
+        \fancyhead[RE]{\zihao{-5} \biaoti}     %奇数页 右侧 页眉信息
+        \fancyhead[LO]{\zihao{-5} 浙江大学本科生毕业论文（设计）}    %偶数页 左侧 页眉信息
+        }
+    \fi
+    }

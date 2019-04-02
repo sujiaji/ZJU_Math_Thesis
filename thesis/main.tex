@@ -1,0 +1,91 @@
+%//                            _ooOoo_
+%//                           o8888888o
+%//                           88" . "88
+%//                           (| -_- |)
+%//                            O\ = /O
+%//                        ____/`---'\____
+%//                      .   ' \\| |// `.
+%//                       / \\||| : |||// \
+%//                     / _||||| -:- |||||- \
+%//                       | | \\\ - /// | |
+%//                     | \_| ''\---/'' | |
+%//                      \ .-\__ `-` ___/-. /
+%//                   ___`. .' /--.--\ `. . __
+%//                ."" '< `.___\_<|>_/___.' >'"".
+%//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+%//                 \ \ `-. \_ __\ /__ _/ .-` / /
+%//         ======`-.____`-.___\_____/___.-`____.-'======
+%//                            `=---='
+
+\documentclass[a4paper, 12pt,twoside]{ctexart}
+% 苏佳骥 2018年5月18日
+% 使用XeLaTeX → bibtex → XeLaTeX → XeLaTeX 过程编译，若提示交叉引用问题，则再重复一次编译
+%%%%%  tex中全篇设置双面打印，页眉信息可自行调整，实际打印时自行判断单双面打印的范围
+% 使用字体 华文仿宋， Times New Roman， 仿宋
+\input{parts/setting.tex}
+%%%%%%%%%%%%  定义论文封面相关信息  %%%%%%%%%%%%%%%%
+\newcommand\leixing{本~科~生~毕~业~论~文（设~计）}
+\newcommand\biaoti{论文模板}
+\newcommand\xuehao{314010xxxx ~ 苏佳骥}
+\newcommand\jiaoshi{x ~ x}  %指导教师
+\newcommand\banji{2014 ~ 统计学}
+\newcommand\xueyuan{数学科学学院}
+\newcommand\tijiaoriqi{2018年5月15日} %提交日期
+\fancyhead{}
+\fancyhead[RO]{\zihao{-5} \biaoti}      %奇数页 页眉信息
+\fancyhead[RE]{\zihao{-5} 浙江大学本科生毕业论文（设计）}      %偶数页 页眉信息
+\begin{document}   
+    %%%%%%%%%%  创建封面   %%%%%%%%%%%%%%%%
+    \input{parts/cover.tex}   
+    %%%%%%%%%%% 承诺书 %%%%%%%%%
+    \input{parts/chengnuoshu.tex}
+    %%%%%%% 致谢 %%%%%%%
+    \resetoddpageheadings  %% 将页眉重新设置为奇数页情形以便单面打印
+    \input{parts/zhixie.tex}
+    %%%%%%%%%%   中文摘要&关键词      %%%%%%%%%%%%%%%
+    \resetoddpageheadings
+    \input{parts/zhaiyao.tex}
+    %%%%%%%%%%   英文摘要&关键词      %%%%%%%%%%%%%%%
+    \resetoddpageheadings
+    \input{parts/abstract.tex}   
+    %%%%%%% 目录 %%%%%
+    \resetoddpageheadings
+    \thispagestyle{fancy}
+    \tableofcontents
+    %%%% 代码不会写，手动填写页码
+    {\zihao{-4} \hwfs \noindent 文献综述和开题报告封面}\\ 
+    {\zihao{-4} \hwfs \noindent 指导教师对文献综述和开题报告具体内容要求}\\    
+    {\zihao{-4} \hwfs \noindent 目录\titlerule*[6pt]{.} \quad I}\\    
+    {\zihao{-4} \hwfs \noindent 一、文献综述\titlerule*[6pt]{.} \quad 1}\\    
+    {\zihao{-4} \hwfs \noindent 二、开题报告\titlerule*[6pt]{.} \quad 5}\\    
+    {\zihao{-4} \hwfs \noindent 三、外文翻译\titlerule*[6pt]{.} \quad 9}\\    
+    {\zihao{-4} \hwfs \noindent 四、外文原文\titlerule*[6pt]{.} \quad 16}\\      
+    {\zihao{-4} \hwfs \noindent 《浙江大学本科生文献综述和开题报告考核表》}
+    \newpage
+    %%%%% 毕业论文 %%%%%%
+    \thispagestyle{empty} 
+    \part{ 毕业论文（设计）}
+    \pagenumbering{arabic} 
+    \newpage
+    \setcounter{page}{1}
+    %%% 导入parts/zhengwen.tex 中的论文正文
+    \input{parts/zhengwen.tex}
+    %%%%% 参考文献 %%%%
+    \resetoddpageheadings
+    \input{parts/cankaowenxian.tex}
+    %%%%%%%%%%   附录      %%%%%%%%%%%%%%%
+    \resetoddpageheadings
+    \input{parts/fulu.tex} 
+    %%%%%%%%%%   作者简历      %%%%%%%%%%%%%%%
+    \resetoddpageheadings
+    \input{parts/zuozhejianjie.tex} 
+    %%%%%%%%%%   任务书      %%%%%%%%%%%%%%%
+    \resetoddpageheadings
+    \input{parts/renwushu.tex} 
+    %%%%%%%%%%  考核表      %%%%%%%%%%%%%%%
+    \resetoddpageheadings
+    \input{parts/kaohebiao.tex} 
+    \thispagestyle{empty} 
+    \part{文献综述和开题报告}
+    \newpage     
+\end{document}
